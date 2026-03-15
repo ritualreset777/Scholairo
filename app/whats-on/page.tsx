@@ -286,7 +286,7 @@ export default function WhatsOn() {
                                 <span style={{ fontSize: 13, fontWeight: 400, color: "#9ca3af", marginLeft: 8 }}>→ {ev.EndTime}</span>
                               )}
                             </div>
-                            <div style={{ fontSize: 16, fontWeight: 600, color: "#111827", lineHeight: 1.4, marginTop: 4, textDecoration: cancelled ? "line-through" : "none" }} dangerouslySetInnerHTML={{ __html: ev.Title.replace(/^Cancelled\s*/i, "") }} />
+                            <div style={{ fontSize: 16, fontWeight: 600, color: "#111827", lineHeight: 1.4, marginTop: 4, textDecoration: cancelled ? "line-through" : "none" }}>{ev.Title.replace(/^Cancelled\s*/i, "")}</div>
                             <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginTop: 2 }}>
                               <span style={{ background: cs.pillBg, color: cs.pillColor, fontSize: 12, fontWeight: 600, padding: "4px 10px", borderRadius: 999 }}>
                                 {ev.Category.split(",")[0].trim()}
