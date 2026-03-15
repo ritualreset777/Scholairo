@@ -475,7 +475,7 @@ const [submitted, setSubmitted] = useState(false);
             >
               <p style={{ fontSize: 12, fontWeight: 600, color: "#4a6280", textTransform: "uppercase", letterSpacing: "1.5px", margin: "0 0 14px" }}>Parent Plan</p>
               <div style={{ display: "flex", alignItems: "baseline", gap: 2, marginBottom: 6 }}>
-                <span style={{ fontFamily: "var(--font-playfair), 'Playfair Display', serif", fontSize: 40, fontWeight: 700, color: "#0d1829", letterSpacing: "-0.02em" }}>£7.99</span>
+                <span style={{ fontFamily: "var(--font-playfair), 'Playfair Display', serif", fontSize: 40, fontWeight: 700, color: "#0d1829", letterSpacing: "-0.02em" }}>£4.99</span>
                 <span style={{ fontSize: 14, color: "#9ca3af" }}>&nbsp;/ month</span>
               </div>
               <p style={{ fontSize: 14, color: "#6b7280", margin: "0 0 24px", lineHeight: 1.5 }}>For parents of one child.</p>
@@ -506,7 +506,7 @@ const [submitted, setSubmitted] = useState(false);
               </div>
               <p style={{ fontSize: 12, fontWeight: 600, color: "#4a6280", textTransform: "uppercase", letterSpacing: "1.5px", margin: "0 0 14px" }}>Family Plan</p>
               <div style={{ display: "flex", alignItems: "baseline", gap: 2, marginBottom: 6 }}>
-                <span style={{ fontFamily: "var(--font-playfair), 'Playfair Display', serif", fontSize: 40, fontWeight: 700, color: "#0d1829", letterSpacing: "-0.02em" }}>£11.99</span>
+                <span style={{ fontFamily: "var(--font-playfair), 'Playfair Display', serif", fontSize: 40, fontWeight: 700, color: "#0d1829", letterSpacing: "-0.02em" }}>£6.99</span>
                 <span style={{ fontSize: 14, color: "#9ca3af" }}>&nbsp;/ month</span>
               </div>
               <p style={{ fontSize: 14, color: "#6b7280", margin: "0 0 24px", lineHeight: 1.5 }}>For families with more than one child at school.</p>

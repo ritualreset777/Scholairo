@@ -93,7 +93,7 @@ export default function Pricing() {
           >
             <p style={{ fontSize: 13, fontWeight: 600, color: "#4a6280", textTransform: "uppercase", letterSpacing: "1.5px", marginBottom: 12 }}>Parent Plan</p>
             <div style={{ display: "flex", alignItems: "baseline", gap: 4, marginBottom: 8 }}>
-              <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 40, fontWeight: 700, color: "#0d1829", letterSpacing: "-0.02em" }}>£7.99</span>
+              <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 40, fontWeight: 700, color: "#0d1829", letterSpacing: "-0.02em" }}>£4.99</span>
               <span style={{ fontSize: 15, color: "#9ca3af", fontWeight: 400 }}>&nbsp;/ month</span>
             </div>
             <p style={{ fontSize: 14, color: "#6b7280", marginBottom: 28, lineHeight: 1.5 }}>
@@ -129,7 +129,7 @@ export default function Pricing() {
             </div>
             <p style={{ fontSize: 13, fontWeight: 600, color: "#4a6280", textTransform: "uppercase", letterSpacing: "1.5px", marginBottom: 12 }}>Family Plan</p>
             <div style={{ display: "flex", alignItems: "baseline", gap: 4, marginBottom: 8 }}>
-              <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 40, fontWeight: 700, color: "#0d1829", letterSpacing: "-0.02em" }}>£11.99</span>
+              <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 40, fontWeight: 700, color: "#0d1829", letterSpacing: "-0.02em" }}>£6.99</span>
               <span style={{ fontSize: 15, color: "#9ca3af", fontWeight: 400 }}>&nbsp;/ month</span>
             </div>
             <p style={{ fontSize: 14, color: "#6b7280", marginBottom: 28, lineHeight: 1.5 }}>
