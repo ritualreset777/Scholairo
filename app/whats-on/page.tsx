@@ -246,7 +246,7 @@ export default function WhatsOn() {
         </div>
 
         {/* Events */}
-        {loading && <div style={{ textAlign: "center", padding: "60px 0", color: "#9ca3af", fontSize: 14 }}>Loading calendar…</div>}
+        {loading && <div style={{ padding: "60px 0" }} />}
         {error && <div style={{ textAlign: "center", padding: "60px 0", color: "#9ca3af", fontSize: 14 }}>Could not load calendar. Please try again later.</div>}
 
         {!loading && !error && (() => {
