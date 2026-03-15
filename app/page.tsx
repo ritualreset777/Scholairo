@@ -124,6 +124,10 @@ const [submitted, setSubmitted] = useState(false);
         .nav-text-link:hover { color: #111827 !important; }
 
 
+        @keyframes welcomeFade {
+          from { opacity: 0; transform: translateY(12px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
         @keyframes emailFloat {
           0%, 100% { transform: translateY(0px); }
           50% { transform: translateY(-8px); }
@@ -160,28 +164,10 @@ const [submitted, setSubmitted] = useState(false);
       </nav>
 
       {/* ── WELCOME BANNER ── */}
-      <section style={{ background: "linear-gradient(180deg, #f6f9fc 0%, #f8fbff 100%)", padding: "80px 24px 88px", textAlign: "center", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", top: -80, right: -80, width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(150,200,162,0.18) 0%, transparent 70%)", pointerEvents: "none" }} />
-        <div style={{ position: "absolute", bottom: -60, left: -60, width: 320, height: 320, borderRadius: "50%", background: "radial-gradient(circle, rgba(90,155,214,0.12) 0%, transparent 70%)", pointerEvents: "none" }} />
-        <div style={{ position: "relative", maxWidth: 680, margin: "0 auto" }}>
-          <div style={{ display: "inline-block", background: "rgba(110,160,220,0.12)", color: "#4a7cb3", fontSize: 13, fontWeight: 600, padding: "6px 16px", borderRadius: 999, marginBottom: 24, letterSpacing: "0.04em" }}>
-            Personalised weekly overviews
-          </div>
-          <h1 style={{ fontFamily: "var(--font-playfair), 'Playfair Display', serif", fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 700, color: "#0d1829", margin: "0 0 18px", lineHeight: 1.2, letterSpacing: "-0.5px" }}>
-            Welcome to Schol<span style={{ color: "#96C8A2" }}>AI</span>ro
-          </h1>
-          <p style={{ fontSize: 17, color: "#4a6280", margin: "0 auto 32px", maxWidth: 500, lineHeight: 1.65 }}>
-            Every Sunday, your son&apos;s week at Eton — fixtures, news, upcoming dates — delivered straight to your inbox.
-          </p>
-          <a
-            href="#signup"
-            style={{ display: "inline-block", background: "#111827", color: "#ffffff", padding: "13px 32px", borderRadius: 10, fontWeight: 700, fontSize: 15, textDecoration: "none", boxShadow: "0 4px 12px rgba(0,0,0,0.08)" }}
-            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 10px 24px rgba(0,0,0,0.15)"; }}
-            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 12px rgba(0,0,0,0.08)"; }}
-          >
-            Get Started Free
-          </a>
-        </div>
+      <section style={{ background: "linear-gradient(180deg, #f6f9fc 0%, #f8fbff 100%)", height: "100vh", display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center" }}>
+        <h1 style={{ fontFamily: "var(--font-playfair), 'Playfair Display', serif", fontSize: "clamp(2.4rem, 5vw, 4rem)", fontWeight: 700, color: "#0d1829", letterSpacing: "-0.5px", animation: "welcomeFade 2s ease both" }}>
+          Welcome to Schol<span style={{ color: "#96C8A2" }}>AI</span>ro
+        </h1>
       </section>
 
       {/* ── HERO ── */}
