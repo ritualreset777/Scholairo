@@ -67,17 +67,19 @@ export default function Home() {
 const [submitted, setSubmitted] = useState(false);
   const [emailIndex, setEmailIndex] = useState(0);
   const [emailVisible, setEmailVisible] = useState(true);
+  const [emailHovered, setEmailHovered] = useState(false);
 
   useEffect(() => {
     const id = setInterval(() => {
+      if (emailHovered) return;
       setEmailVisible(false);
       setTimeout(() => {
         setEmailIndex(i => (i + 1) % EMAIL_EXAMPLES.length);
         setEmailVisible(true);
       }, 600);
-    }, 10000);
+    }, 3000);
     return () => clearInterval(id);
-  }, []);
+  }, [emailHovered]);
   const [transitioning, setTransitioning] = useState(false);
 
   const fadeToSection = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
@@ -226,6 +228,8 @@ const [submitted, setSubmitted] = useState(false);
           <div
             className="email-card-float"
             style={{ background: "#ffffff", borderRadius: 16, boxShadow: "0 10px 30px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04)", border: "1px solid #e5e7eb", overflow: "hidden" }}
+            onMouseEnter={() => setEmailHovered(true)}
+            onMouseLeave={() => setEmailHovered(false)}
           >
             {/* Email chrome */}
             <div style={{ background: "#f0f6fb", borderBottom: "1px solid #b8d4ec", padding: "14px 20px", display: "flex", alignItems: "center", gap: 8 }}>

@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scholairo — Weekly school summaries for Eton parents</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:           #f0f6fb;
+      --card:         #ffffff;
+      --primary:      #96C8A2;
+      --primary-dark: #4a8abf;
+      --text:         #0d1829;
+      --muted:        #4a6280;
+      --border:       #b8d4ec;
+      --navy:         #0d1829;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      line-height: 1.2;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ── Nav ── */
+    nav {
+      background: var(--navy);
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: -0.3px;
+    }
+
+    .nav-logo span { color: var(--primary); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: #ffffff; }
+
+    .nav-cta {
+      background: var(--primary-dark);
+      color: #ffffff !important;
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-weight: 600 !important;
+      transition: background 0.15s !important;
+    }
+
+    .nav-cta:hover { background: #6a9fc8 !important; }
+
+    /* ── Hero ── */
+    .hero {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 80px 40px 64px;
+      display: grid;
+      grid-template-columns: 1fr 400px;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #e8f4ee;
+      color: #2e7d4f;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 24px;
+      letter-spacing: 0.3px;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 7px; height: 7px;
+      background: #96C8A2;
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      color: var(--navy);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--primary-dark);
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin-bottom: 36px;
+      max-width: 480px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--navy);
+      color: #ffffff;
+      padding: 13px 28px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.18s, transform 0.18s, box-shadow 0.18s;
+    }
+
+    .btn-primary:hover {
+      background: #1f2937;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--navy);
+      padding: 13px 28px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 2px solid var(--border);
+      cursor: pointer;
+      transition: background 0.15s, transform 0.15s;
+    }
+
+    .btn-outline:hover {
+      background: #f0f6fb;
+      transform: translateY(-1px);
+    }
+
+    /* ── Email card ── */
+    .email-card {
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(13,24,41,0.12);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .email-card-header {
+      background: var(--primary-dark);
+      padding: 20px 24px;
+      color: #ffffff;
+    }
+
+    .email-card-header .from {
+      font-size: 0.75rem;
+      opacity: 0.75;
+      margin-bottom: 4px;
+    }
+
+    .email-card-header .subject {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    .email-card-body {
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .email-item {
+      border-left: 3px solid var(--primary);
+      padding-left: 14px;
+    }
+
+    .email-item .label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+
+    .email-item .title {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 2px;
+    }
+
+    .email-item .detail {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* ── Section shared ── */
+    .section {
+      padding: 80px 40px;
+    }
+
+    .section-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--primary-dark);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+
+    .section-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 560px;
+      margin-bottom: 56px;
+    }
+
+    /* ── Features grid ── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+    }
+
+    .feature-icon {
+      width: 44px; height: 44px;
+      background: #e8f4ee;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 16px;
+    }
+
+    .feature-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+      color: var(--navy);
+    }
+
+    .feature-card p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── How it works ── */
+    .how-bg {
+      background: var(--navy);
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .step {
+      text-align: center;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .step-num {
+      width: 48px; height: 48px;
+      background: var(--primary-dark);
+      color: #ffffff;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 20px;
+    }
+
+    .step h3 {
+      font-size: 1.1rem;
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .step p {
+      font-size: 0.88rem;
+      line-height: 1.65;
+    }
+
+    .how-bg .section-title { color: #ffffff; }
+    .how-bg .section-label { color: var(--primary); }
+    .how-bg .section-sub { color: rgba(255,255,255,0.65); }
+
+    /* ── Pricing ── */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      max-width: 720px;
+    }
+
+    .pricing-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
+      position: relative;
+    }
+
+    .pricing-card.featured {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(150, 200, 162, 0.2);
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: -12px; left: 24px;
+      background: var(--primary);
+      color: var(--navy);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 999px;
+      letter-spacing: 0.4px;
+    }
+
+    .pricing-plan {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .pricing-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .pricing-price sup {
+      font-size: 1.1rem;
+      vertical-align: super;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .pricing-period {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .pricing-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .pricing-features li {
+      font-size: 0.88rem;
+      color: var(--muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .pricing-features li::before {
+      content: '✓';
+      color: var(--primary-dark);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .btn-price {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.15s;
+    }
+
+    .btn-price-primary {
+      background: var(--navy);
+      color: #ffffff;
+    }
+
+    .btn-price-primary:hover {
+      background: #1f2937;
+      transform: translateY(-1px);
+    }
+
+    .btn-price-outline {
+      background: transparent;
+      color: var(--navy);
+      border: 2px solid var(--border) !important;
+    }
+
+    .btn-price-outline:hover {
+      background: var(--bg);
+      transform: translateY(-1px);
+    }
+
+    /* ── CTA banner ── */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, #2a5c8a 100%);
+      border-radius: 20px;
+      padding: 60px 56px;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    .cta-banner h2 {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      margin-bottom: 14px;
+    }
+
+    .cta-banner p {
+      font-size: 1rem;
+      opacity: 0.8;
+      margin-bottom: 32px;
+    }
+
+    .btn-cta-white {
+      background: #ffffff;
+      color: var(--navy);
+      padding: 13px 32px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .btn-cta-white:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.2);
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.55);
+      text-align: center;
+      padding: 32px 40px;
+      font-size: 0.85rem;
+    }
+
+    footer strong { color: rgba(255,255,255,0.85); }
+
+    /* ── Responsive ── */
+    @media (max-width: 860px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding: 56px 24px 48px;
+      }
+
+      .email-card { display: none; }
+
+      .features-grid,
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section { padding: 56px 24px; }
+
+      .cta-banner { padding: 40px 24px; }
+    }
+
+    @media (max-width: 600px) {
+      nav { padding: 0 20px; }
+      .nav-links a:not(.nav-cta) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <div class="nav-logo">Schola<span>iro</span></div>
+    <div class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#get-started" class="nav-cta">Get Started</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="section" style="padding-top: 0; padding-bottom: 0;">
+    <div class="hero">
+      <div>
+        <div class="hero-badge">Built for Eton parents</div>
+        <h1>Stay informed about your son's week at <em>Eton</em></h1>
+        <p>
+          Scholairo delivers a personalised weekly email every Sunday — fixtures, news, upcoming events, and everything your son is involved in, without the noise.
+        </p>
+        <div class="hero-actions">
+          <button class="btn-primary" onclick="document.getElementById('get-started').scrollIntoView({behavior:'smooth'})">Get Started</button>
+          <button class="btn-outline" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">See how it works</button>
+        </div>
+      </div>
+
+      <!-- Sample email card -->
+      <div class="email-card">
+        <div class="email-card-header">
+          <div class="from">From: Scholairo &lt;weekly@scholairo.com&gt;</div>
+          <div class="subject">Ollie's Week at Eton — Sunday 9 March</div>
+        </div>
+        <div class="email-card-body">
+          <div class="email-item">
+            <div class="label">This Week</div>
+            <div class="title">Rugby vs Harrow — Away fixture Wednesday</div>
+            <div class="detail">Ollie's U16 team. Kick-off at 14:30.</div>
+          </div>
+          <div class="email-item">
+            <div class="label">School News</div>
+            <div class="title">Drama production rehearsals begin this week</div>
+            <div class="detail">Ollie is listed in the cast for the spring play.</div>
+          </div>
+          <div class="email-item">
+            <div class="label">Upcoming</div>
+            <div class="title">Half-term exeat starts Friday 28th March</div>
+            <div class="detail">Collection from School Yard from 12:00.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-label">Why parents love Scholairo</div>
+      <h2 class="section-title">Everything in one place, every Sunday</h2>
+      <p class="section-sub">No more checking multiple sources or missing important dates. Scholairo pulls it all together for you.</p>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📅</div>
+          <h3>Fixtures & Events</h3>
+          <p>Sports fixtures, concerts, plays, and society events — all filtered to what's relevant to your son's year group and activities.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📰</div>
+          <h3>School News</h3>
+          <p>The latest news from Eton, curated and summarised so you're always up to date without reading through every bulletin.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔔</div>
+          <h3>Upcoming Dates</h3>
+          <p>Exeats, Long Leave, end of Half, and key deadlines — surfaced ahead of time so nothing sneaks up on you.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section how-bg" id="how">
+    <div class="section-inner">
+      <div class="section-label">How it works</div>
+      <h2 class="section-title">Set up in two minutes</h2>
+      <p class="section-sub">Tell us about your son and we handle the rest, automatically, every week.</p>
+
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Create your account</h3>
+          <p>Sign up with your email and tell us your son's year group and house at Eton.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>We gather the information</h3>
+          <p>Every week Scholairo pulls the latest fixtures, news, and notices from Eton's channels.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Your summary arrives Sunday</h3>
+          <p>A clean, personalised email lands in your inbox every Sunday morning, ready for the week ahead.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="section" id="pricing">
+    <div class="section-inner">
+      <div class="section-label">Pricing</div>
+      <h2 class="section-title">Simple, transparent pricing</h2>
+      <p class="section-sub">Choose the plan that fits your family. Cancel any time.</p>
+
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="pricing-plan">Parent Plan</div>
+          <div class="pricing-price"><sup>£</sup>4.99</div>
+          <div class="pricing-period">per month</div>
+          <ul class="pricing-features">
+            <li>Weekly personalised email digest</li>
+            <li>Fixtures, news & upcoming dates</li>
+            <li>One son's year group & house</li>
+            <li>Cancel any time</li>
+          </ul>
+          <button class="btn-price btn-price-outline">Get Started</button>
+        </div>
+
+        <div class="pricing-card featured">
+          <div class="pricing-badge">Most popular</div>
+          <div class="pricing-plan">Family Plan</div>
+          <div class="pricing-price"><sup>£</sup>6.99</div>
+          <div class="pricing-period">per month</div>
+          <ul class="pricing-features">
+            <li>Everything in Parent Plan</li>
+            <li>Up to 3 sons covered</li>
+            <li>Separate digest per child</li>
+            <li>Priority support</li>
+          </ul>
+          <button class="btn-price btn-price-primary">Get Started</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" id="get-started">
+    <div class="section-inner">
+      <div class="cta-banner">
+        <h2>Ready to stay in the loop?</h2>
+        <p>Join parents who never miss a thing about their son's week at Eton.</p>
+        <button class="btn-cta-white">Get Started — It's Free to Try</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p><strong>Scholairo</strong> &nbsp;·&nbsp; Weekly school summaries for Eton parents &nbsp;·&nbsp; &copy; 2026</p>
+  </footer>
+
+</body>
+</html>
