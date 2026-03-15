@@ -132,8 +132,6 @@ const [submitted, setSubmitted] = useState(false);
           animation: emailFloat 4s ease-in-out 1s infinite;
         }
         .email-card-float:hover {
-          animation-play-state: paused;
-          transform: translateY(-6px);
           box-shadow: 0 20px 40px rgba(0,0,0,0.12) !important;
         }
       `}</style>
