@@ -159,6 +159,31 @@ const [submitted, setSubmitted] = useState(false);
         </div>
       </nav>
 
+      {/* ── WELCOME BANNER ── */}
+      <section style={{ background: "linear-gradient(135deg, #0d1829 0%, #1a2e4a 100%)", padding: "80px 24px 88px", textAlign: "center", position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", top: -80, right: -80, width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(150,200,162,0.15) 0%, transparent 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", bottom: -60, left: -60, width: 320, height: 320, borderRadius: "50%", background: "radial-gradient(circle, rgba(90,155,214,0.12) 0%, transparent 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "relative", maxWidth: 680, margin: "0 auto" }}>
+          <div style={{ display: "inline-block", background: "rgba(150,200,162,0.15)", color: "#96C8A2", fontSize: 13, fontWeight: 600, padding: "6px 16px", borderRadius: 999, marginBottom: 24, letterSpacing: "0.04em" }}>
+            Personalised weekly overviews
+          </div>
+          <h1 style={{ fontFamily: "var(--font-playfair), 'Playfair Display', serif", fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 700, color: "#ffffff", margin: "0 0 18px", lineHeight: 1.2, letterSpacing: "-0.5px" }}>
+            Welcome to Schol<span style={{ color: "#96C8A2" }}>AI</span>ro
+          </h1>
+          <p style={{ fontSize: 17, color: "rgba(255,255,255,0.65)", margin: "0 auto 32px", maxWidth: 500, lineHeight: 1.65 }}>
+            Every Sunday, your son&apos;s week at Eton — fixtures, news, upcoming dates — delivered straight to your inbox.
+          </p>
+          <a
+            href="#signup"
+            style={{ display: "inline-block", background: "#96C8A2", color: "#0d1829", padding: "13px 32px", borderRadius: 10, fontWeight: 700, fontSize: 15, textDecoration: "none", transition: "transform 0.15s, box-shadow 0.15s" }}
+            onMouseEnter={e => { (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)"; (e.currentTarget as HTMLElement).style.boxShadow = "0 10px 24px rgba(150,200,162,0.35)"; }}
+            onMouseLeave={e => { (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; (e.currentTarget as HTMLElement).style.boxShadow = "none"; }}
+          >
+            Get Started Free
+          </a>
+        </div>
+      </section>
+
       {/* ── HERO ── */}
       <section style={{ position: "relative", overflow: "hidden" }}>
         {/* Decorative orbs */}
