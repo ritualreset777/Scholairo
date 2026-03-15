@@ -98,7 +98,7 @@ export default function Home() {
                   boxShadow: "0 2px 8px rgba(106,171,120,0.25)",
                 }}
               >
-                Get Started — Free
+                Get Started
               </a>
               <a
                 href="#how-it-works"

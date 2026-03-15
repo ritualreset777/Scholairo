@@ -206,7 +206,7 @@ const [submitted, setSubmitted] = useState(false);
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 style={{ background: "#111827", color: "#ffffff", padding: "14px 26px", borderRadius: 10, fontSize: 15, fontWeight: 600, textDecoration: "none", boxShadow: "0 6px 16px rgba(0,0,0,0.10)", display: "inline-block" }}
               >
-                Get Started — Free
+                Get Started
               </motion.a>
               <motion.a
                 href="#how-it-works"
