@@ -132,6 +132,23 @@ export default function WhatsOn() {
         </div>
       </nav>
 
+      {/* Welcome banner */}
+      <div style={{ background: "linear-gradient(135deg, #0d1829 0%, #1a2e4a 100%)", padding: "72px 24px 80px", textAlign: "center", position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", top: -80, right: -80, width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(150,200,162,0.15) 0%, transparent 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", bottom: -60, left: -60, width: 300, height: 300, borderRadius: "50%", background: "radial-gradient(circle, rgba(90,155,214,0.12) 0%, transparent 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "relative", maxWidth: 700, margin: "0 auto" }}>
+          <div style={{ display: "inline-block", background: "rgba(150,200,162,0.15)", color: "#96C8A2", fontSize: 13, fontWeight: 600, padding: "6px 16px", borderRadius: 999, marginBottom: 24, letterSpacing: "0.04em" }}>
+            Live from Eton College
+          </div>
+          <h1 style={{ fontFamily: "'Playfair Display', serif", fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 700, color: "#ffffff", margin: "0 0 16px", lineHeight: 1.2, letterSpacing: "-0.5px" }}>
+            Welcome to Schol<span style={{ color: "#96C8A2" }}>AI</span>ro
+          </h1>
+          <p style={{ fontSize: 17, color: "rgba(255,255,255,0.65)", margin: "0 auto", maxWidth: 520, lineHeight: 1.65 }}>
+            Your live window into what&apos;s happening at Eton — fixtures, concerts, drama, societies and more, updated each week.
+          </p>
+        </div>
+      </div>
+
       {/* Page content */}
       <div style={{ maxWidth: 1100, margin: "0 auto", padding: "60px 24px 80px" }}>
 
