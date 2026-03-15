@@ -135,6 +135,13 @@ export default function WhatsOn() {
       {/* Page content */}
       <div style={{ maxWidth: 1100, margin: "0 auto", padding: "60px 24px 80px" }}>
 
+        {/* Back button */}
+        <div style={{ marginBottom: 24 }}>
+          <Link href="/" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontSize: 14, fontWeight: 500, color: "#6b7280", textDecoration: "none" }}>
+            <span style={{ fontSize: 16 }}>←</span> Back
+          </Link>
+        </div>
+
         {/* Header */}
         <div style={{ marginBottom: 40 }}>
           <p style={{ fontSize: 13, fontWeight: 600, color: "#9bc8a6", textTransform: "uppercase", letterSpacing: "2px", margin: "0 0 10px" }}>
