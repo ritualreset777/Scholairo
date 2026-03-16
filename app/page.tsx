@@ -65,6 +65,7 @@ export default function Home() {
   useEffect(() => { window.scrollTo(0, 0); }, []);
 
 const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({ name: "", childName: "", yearGroup: "", email: "" });
   const [emailIndex, setEmailIndex] = useState(0);
   const [emailVisible, setEmailVisible] = useState(true);
   const [emailHovered, setEmailHovered] = useState(false);
@@ -92,8 +93,13 @@ const [submitted, setSubmitted] = useState(false);
     }, 350);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    await fetch("/api/subscribe", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
     setSubmitted(true);
   };
 
@@ -580,17 +586,17 @@ const [submitted, setSubmitted] = useState(false);
                 <div className="form-row">
                   <div>
                     <label style={labelStyle}>Your name</label>
-                    <input required placeholder="e.g. Sarah Mitchell" style={inputStyle} />
+                    <input required placeholder="e.g. Sarah Mitchell" style={inputStyle} value={formData.name} onChange={e => setFormData(f => ({ ...f, name: e.target.value }))} />
                   </div>
                   <div>
                     <label style={labelStyle}>Child&apos;s name</label>
-                    <input required placeholder="e.g. Ollie" style={inputStyle} />
+                    <input required placeholder="e.g. Ollie" style={inputStyle} value={formData.childName} onChange={e => setFormData(f => ({ ...f, childName: e.target.value }))} />
                   </div>
                 </div>
 
                 <div style={{ marginBottom: 20 }}>
                   <label style={labelStyle}>Year group</label>
-                  <select required style={inputStyle}>
+                  <select required style={inputStyle} value={formData.yearGroup} onChange={e => setFormData(f => ({ ...f, yearGroup: e.target.value }))}>
                     <option value="">Select year group…</option>
                     {YEAR_GROUPS.map((y) => (
                       <option key={y} value={y}>{y}</option>
@@ -600,7 +606,7 @@ const [submitted, setSubmitted] = useState(false);
 
 <div style={{ marginBottom: 28 }}>
                   <label style={labelStyle}>Email address</label>
-                  <input required type="email" placeholder="you@example.com" style={inputStyle} />
+                  <input required type="email" placeholder="you@example.com" style={inputStyle} value={formData.email} onChange={e => setFormData(f => ({ ...f, email: e.target.value }))} />
                 </div>
 
                 <motion.button
