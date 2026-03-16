@@ -458,7 +458,7 @@ const [submitted, setSubmitted] = useState(false);
       </section>
 
       {/* ── PRICING ── */}
-      <section id="pricing" style={{ background: "#ffffff", padding: "100px 24px" }}>
+      <section id="pricing" style={{ background: "linear-gradient(180deg, #f6f9fc 0%, #f8fbff 100%)", padding: "100px 24px" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
