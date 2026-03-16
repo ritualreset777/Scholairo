@@ -189,20 +189,20 @@ const [submitted, setSubmitted] = useState(false);
               variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } }}
               style={{ display: "inline-block", background: "rgba(110,160,220,0.12)", color: "#4a7cb3", fontSize: 13, fontWeight: 600, padding: "6px 14px", borderRadius: 999, marginBottom: 28, letterSpacing: "0.02em" }}
             >
-              Weekly Overviews for Parents
+              Built exclusively for Eton parents
             </motion.div>
             <motion.h1
               variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } } }}
               style={{ fontFamily: "var(--font-playfair), 'Playfair Display', serif", fontSize: "clamp(40px, 4.5vw, 56px)", fontWeight: 700, lineHeight: 1.1, margin: "0 0 24px", letterSpacing: "-0.02em", maxWidth: 520 }}
             >
-              Your child&apos;s week,<br />
-              <span style={{ background: "linear-gradient(90deg, #5a9bd6, #7ab0e3)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>beautifully summarised.</span>
+              Know your son&apos;s week<br />
+              <span style={{ background: "linear-gradient(90deg, #5a9bd6, #7ab0e3)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>at Eton, every Sunday.</span>
             </motion.h1>
             <motion.p
               variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } }}
               style={{ fontSize: 17, lineHeight: 1.75, color: "#4a6280", margin: "0 0 36px", maxWidth: 460 }}
             >
-              Every Sunday, Scholairo sends parents a personalised weekly overview of what&apos;s happening at school — from upcoming events to a summary of what their child has been up to.
+              Scholairo pulls fixtures, concerts, news and upcoming dates straight from Eton&apos;s calendar and delivers a personalised summary to your inbox every Sunday morning.
             </motion.p>
             <motion.div
               variants={{ hidden: { opacity: 0, y: 16 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } }}
