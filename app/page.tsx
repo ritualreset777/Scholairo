@@ -98,7 +98,7 @@ const [submitted, setSubmitted] = useState(false);
   };
 
   return (
-    <div style={{ background: "linear-gradient(180deg, #f6f9fc 0%, #f8fbff 100%)", color: "#0d1829", fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif" }}>
+    <div style={{ background: "#f6f9fc", color: "#0d1829", fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif" }}>
       <div style={{ position: "fixed", inset: 0, background: "#ffffff", zIndex: 9999, pointerEvents: "none", opacity: transitioning ? 1 : 0, transition: "opacity 0.35s ease" }} />
       <style>{`
         .btn-cta { transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease; }
@@ -164,7 +164,7 @@ const [submitted, setSubmitted] = useState(false);
       </nav>
 
       {/* ── WELCOME BANNER ── */}
-      <section style={{ height: "100vh", display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center" }}>
+      <section style={{ height: "100vh", background: "#f6f9fc", display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center" }}>
         <h1 style={{ fontFamily: "var(--font-playfair), 'Playfair Display', serif", fontSize: "clamp(2.4rem, 5vw, 4rem)", fontWeight: 700, color: "#0d1829", letterSpacing: "-0.5px", animation: "welcomeFade 2s ease both" }}>
           Welcome to Schol<span style={{ color: "#96C8A2" }}>AI</span>ro
         </h1>
